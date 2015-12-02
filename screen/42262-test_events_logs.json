@@ -1,0 +1,48 @@
+{
+  "board_title": "(test) Events / Logs",
+  "board_bgtype": "board_graph",
+  "original_title": "(test) Logs",
+  "height": 80,
+  "width": "100%",
+  "template_variables": [
+    {
+      "default": "*",
+      "prefix": null,
+      "name": "platform"
+    }
+  ],
+  "widgets": [
+    {
+      "board_id": 42262,
+      "title_size": 16,
+      "title": true,
+      "title_align": "left",
+      "title_text": "",
+      "height": 42,
+      "width": 47,
+      "query": "couchdb",
+      "timeframe": "1d",
+      "y": 16,
+      "x": 10,
+      "type": "event_stream",
+      "event_size": "l"
+    },
+    {
+      "board_id": 42262,
+      "title_size": 16,
+      "title": true,
+      "title_align": "left",
+      "title_text": "",
+      "height": 9,
+      "width": 47,
+      "query": "*",
+      "timeframe": "1h",
+      "y": 4,
+      "x": 10,
+      "type": "event_timeline"
+    }
+  ],
+  "shared": false,
+  "id": 42262,
+  "title_edited": true
+}

@@ -1,0 +1,106 @@
+{
+  "dash": {
+    "graphs": [
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "per_second(sum:couchdb.couchdb.request_time{$platform} by {name})",
+              "type": "bars"
+            },
+            {
+              "q": "per_second(sum:couchdb.couchdb.request_time{$platform})",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "couchdb.couchdb.request_time, couchdb.couchdb.request_time"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "per_second(sum:couchdb.httpd_status_codes.200{$platform}), per_second(sum:couchdb.httpd_status_codes.201{$platform}), per_second(sum:couchdb.httpd_status_codes.202{$platform}), per_second(sum:couchdb.httpd_status_codes.304{$platform}), per_second(sum:couchdb.httpd_status_codes.400{$platform}), per_second(sum:couchdb.httpd_status_codes.404{$platform}), per_second(sum:couchdb.httpd_status_codes.409{$platform}), per_second(sum:couchdb.httpd_status_codes.500{$platform})",
+              "type": "bars"
+            },
+            {
+              "q": "per_second(sum:couchdb.httpd.requests{$platform})",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "couchdb.httpd_status_codes.200, couchdb.httpd.requests"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "rate(sum:elasticsearch.search.query.time{$platform} by {name}), rate(sum:elasticsearch.search.fetch.time{$platform} by {name})",
+              "type": "bars"
+            },
+            {
+              "q": "rate(sum:elasticsearch.search.query.time{$platform} by {name}) + rate(sum:elasticsearch.search.fetch.time{$platform} by {name})",
+              "type": "line"
+            }
+          ],
+          "markers": [
+            {
+              "dim": "y",
+              "type": "warning dashed",
+              "value": "y = 0.05",
+              "val": 0.05,
+              "label": "Warning : time > 500ms"
+            },
+            {
+              "dim": "y",
+              "type": "error dashed",
+              "value": "y = 0.08",
+              "val": 0.08,
+              "label": "Alert : time > 800ms"
+            }
+          ]
+        },
+        "title": "elasticsearch.search.query.time, elasticsearch.search.query.time"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "derivative(sum:docker.containers.running{$platform} by {name})",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "Sum of docker.containers.running over $platform by name"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "sum:docker.containers.running{$platform} by {name}",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "Sum of docker.containers.running over $platform by name"
+      }
+    ],
+    "description": "created by arnaud.dupuis@technicolor.com",
+    "template_variables": [
+      {
+        "default": "*",
+        "prefix": null,
+        "name": "platform"
+      }
+    ],
+    "id": 83299,
+    "title": "(test) couchdb / elasticsearch"
+  },
+  "url": "/dash/83299/test-couchdb--elasticsearch",
+  "resource": "/api/v1/dash/83299"
+}

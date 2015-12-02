@@ -1,0 +1,275 @@
+[
+  {
+    "tags": [],
+    "query": "avg(last_1m):sum:docker.containers.running{lea_integration_02} < 18",
+    "message": "@arnaud.dupuis@technicolor.com @boris.rousseau@technicolor.com",
+    "id": 354620,
+    "multi": false,
+    "name": "lea_integration_02: docker.container.running < 18 during the last minute",
+    "created_at": 1448376693000,
+    "creator": {
+      "id": 162503,
+      "handle": "arnaud.dupuis@technicolor.com",
+      "name": null,
+      "email": "arnaud.dupuis@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "metric alert",
+    "options": {
+      "notify_audit": true,
+      "timeout_h": 0,
+      "silenced": {},
+      "thresholds": {
+        "critical": 18
+      },
+      "notify_no_data": true,
+      "renotify_interval": 0,
+      "no_data_timeframe": 2
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_1m):sum:docker.containers.running{lea_staging_02} < 18",
+    "message": "@arnaud.dupuis@technicolor.com @boris.rousseau@technicolor.com",
+    "id": 354622,
+    "multi": false,
+    "name": "lea_staging_02: docker.container.running < 18 during the last minute",
+    "created_at": 1448376776000,
+    "creator": {
+      "id": 162503,
+      "handle": "arnaud.dupuis@technicolor.com",
+      "name": null,
+      "email": "arnaud.dupuis@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "metric alert",
+    "options": {
+      "notify_audit": true,
+      "timeout_h": 0,
+      "silenced": {},
+      "thresholds": {
+        "critical": 18
+      },
+      "notify_no_data": false,
+      "renotify_interval": 0,
+      "no_data_timeframe": 2
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_1m):per_minute(avg:couchdb.couchdb.request_time{$platform}) > 800",
+    "message": "@arnaud.dupuis@technicolor.com",
+    "id": 349743,
+    "multi": false,
+    "name": "test",
+    "created_at": 1447946506000,
+    "creator": {
+      "id": 149183,
+      "handle": "boris.rousseau@technicolor.com",
+      "name": "Boris Rousseau",
+      "email": "boris.rousseau@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "query alert",
+    "options": {
+      "notify_audit": false,
+      "timeout_h": 0,
+      "silenced": {},
+      "thresholds": {
+        "critical": 800
+      },
+      "notify_no_data": false,
+      "renotify_interval": 0,
+      "no_data_timeframe": 2
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_1m):sum:docker.containers.running{lea_staging_01} < 21",
+    "message": "@arnaud.dupuis@technicolor.com @boris.rousseau@technicolor.com",
+    "id": 354621,
+    "multi": false,
+    "name": "lea_staging_01: docker.container.running < 21 during the last minute",
+    "created_at": 1448376742000,
+    "creator": {
+      "id": 162503,
+      "handle": "arnaud.dupuis@technicolor.com",
+      "name": null,
+      "email": "arnaud.dupuis@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "metric alert",
+    "options": {
+      "notify_audit": true,
+      "timeout_h": 0,
+      "silenced": {},
+      "thresholds": {
+        "critical": 21
+      },
+      "notify_no_data": false,
+      "renotify_interval": 0,
+      "no_data_timeframe": 2
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_5m):max:system.disk.in_use{host:i-45aae6e4} by {device} > 0.8",
+    "message": "@boris.rousseau@technicolor.com",
+    "id": 332366,
+    "multi": true,
+    "name": "Disk usage is above 80%",
+    "created_at": 1446712809000,
+    "creator": {
+      "id": 149183,
+      "handle": "boris.rousseau@technicolor.com",
+      "name": "Boris Rousseau",
+      "email": "boris.rousseau@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "metric alert",
+    "options": {
+      "notify_audit": true,
+      "timeout_h": 0,
+      "silenced": {},
+      "no_data_timeframe": 2,
+      "notify_no_data": false,
+      "renotify_interval": 0
+    }
+  },
+  {
+    "tags": [],
+    "query": "\"ntp.in_sync\".over(\"*\").last(2).count_by_status()",
+    "message": "Triggers if any host's clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent's `ntp.yaml` file.\n\nPlease read the [KB article](http://help.datadoghq.com/hc/en-us/articles/204282095-Network-Time-Protocol-NTP-Offset-Issues) on NTP Offset issues for more details on cause and resolution.",
+    "id": 307727,
+    "multi": true,
+    "name": "[Auto] Clock in sync with NTP",
+    "created_at": 1445341614000,
+    "creator": {
+      "id": 149181,
+      "handle": "support-technicolor",
+      "name": "Datadog Support",
+      "email": "support-user-prod@datadoghq.com"
+    },
+    "org_id": 35947,
+    "type": "service check",
+    "options": {
+      "thresholds": {
+        "warning": 1,
+        "ok": 1,
+        "critical": 1
+      }
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_1m):sum:docker.containers.running{lea_development_01} < 21",
+    "message": "@arnaud.dupuis@technicolor.com @boris.rousseau@technicolor.com",
+    "id": 354616,
+    "multi": false,
+    "name": "lea_development_01: docker.container.running < 21 during the last minute",
+    "created_at": 1448376370000,
+    "creator": {
+      "id": 162503,
+      "handle": "arnaud.dupuis@technicolor.com",
+      "name": null,
+      "email": "arnaud.dupuis@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "metric alert",
+    "options": {
+      "notify_audit": true,
+      "timeout_h": 0,
+      "silenced": {},
+      "thresholds": {
+        "critical": 21
+      },
+      "notify_no_data": true,
+      "renotify_interval": 0,
+      "no_data_timeframe": 2
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_1m):sum:docker.containers.running{lea_integration_01} < 21",
+    "message": "@arnaud.dupuis@technicolor.com @boris.rousseau@technicolor.com",
+    "id": 354617,
+    "multi": false,
+    "name": "lea_integration_01: docker.container.running < 21 during the last minute",
+    "created_at": 1448376515000,
+    "creator": {
+      "id": 162503,
+      "handle": "arnaud.dupuis@technicolor.com",
+      "name": null,
+      "email": "arnaud.dupuis@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "metric alert",
+    "options": {
+      "notify_audit": true,
+      "timeout_h": 0,
+      "silenced": {},
+      "thresholds": {
+        "critical": 21
+      },
+      "notify_no_data": true,
+      "renotify_interval": 0,
+      "no_data_timeframe": 2
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_1m):max:aws.ec2.cpuutilization{lea_integration} > 80",
+    "message": "@arnaud.dupuis@technicolor.com",
+    "id": 347025,
+    "multi": false,
+    "name": "[CPU INTEG] Above 80% during the last minute",
+    "created_at": 1447778469000,
+    "creator": {
+      "id": 149183,
+      "handle": "boris.rousseau@technicolor.com",
+      "name": "Boris Rousseau",
+      "email": "boris.rousseau@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "metric alert",
+    "options": {
+      "notify_audit": false,
+      "timeout_h": 0,
+      "silenced": {},
+      "thresholds": {
+        "critical": 80
+      },
+      "notify_no_data": false,
+      "renotify_interval": 0,
+      "no_data_timeframe": 2
+    }
+  },
+  {
+    "tags": [],
+    "query": "avg(last_1m):avg:system.cpu.user{host:i-45aae6e4}+avg:system.cpu.system{host:i-45aae6e4} > 99",
+    "message": "@boris.rousseau@technicolor.com",
+    "id": 331142,
+    "multi": false,
+    "name": "CPU load is very high on integration",
+    "created_at": 1446653887000,
+    "creator": {
+      "id": 149183,
+      "handle": "boris.rousseau@technicolor.com",
+      "name": "Boris Rousseau",
+      "email": "boris.rousseau@technicolor.com"
+    },
+    "org_id": 35947,
+    "type": "query alert",
+    "options": {
+      "notify_audit": false,
+      "timeout_h": 0,
+      "silenced": {},
+      "no_data_timeframe": 2,
+      "notify_no_data": false,
+      "renotify_interval": 0,
+      "thresholds": {
+        "critical": 99
+      }
+    }
+  }
+]

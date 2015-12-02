@@ -1,0 +1,198 @@
+{
+  "dash": {
+    "graphs": [
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "sum:system.cpu.system{$platform} by {name}, sum:system.cpu.iowait{$platform} by {name}, sum:system.cpu.user{$platform} by {name}, sum:system.cpu.stolen{$platform} by {name}, sum:system.cpu.guest{$platform} by {name}",
+              "type": "bars"
+            },
+            {
+              "q": "sum:system.cpu.system{$platform} + sum:system.cpu.iowait{$platform} + sum:system.cpu.user{$platform} + sum:system.cpu.stolen{$platform} + sum:system.cpu.guest{$platform}",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[PLATFORM] Sum of system.cpu (user, system, iowait)"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "sum:system.mem.used{$platform} by {name}",
+              "type": "bars"
+            },
+            {
+              "q": "sum:system.mem.total{$platform}",
+              "type": "line"
+            },
+            {
+              "q": "sum:system.mem.cached{$platform} by {name}",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[PLATFORM] Sum of system.mem (used, cached, total)"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "sum:system.net.bytes_rcvd{$platform} by {container_name}",
+              "type": "bars"
+            },
+            {
+              "q": "0 - sum:system.net.bytes_sent{$platform} by {container_name}",
+              "type": "bars"
+            },
+            {
+              "q": "sum:system.net.bytes_rcvd{$platform} by {container_name}",
+              "type": "line"
+            },
+            {
+              "q": "0 - sum:system.net.bytes_sent{$platform} by {container_name}",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[PLATFORM] Sum of system.net.bytes (sent, rcvd)"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "sum:docker.cpu.user{$platform,$container} by {container_name} + sum:docker.cpu.system{$platform,$container} by {container_name}",
+              "type": "bars"
+            },
+            {
+              "q": "sum:docker.cpu.user{$platform,$container} + sum:docker.cpu.system{$platform,$container}",
+              "style": {
+                "palette": "dog_classic"
+              },
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[CONTAINERS] Sum of docker.cpu (user, system)"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "sum:docker.mem.rss{$platform,$container} by {container_name}",
+              "type": "bars"
+            }
+          ]
+        },
+        "title": "[CONTAINERS] Sum of docker.mem.rss"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "0 - sum:docker.net.bytes_sent{$platform,$container} by {container_name}",
+              "type": "bars"
+            },
+            {
+              "q": "sum:docker.net.bytes_rcvd{$platform,$container} by {container_name}",
+              "type": "bars"
+            },
+            {
+              "q": "sum:docker.net.bytes_rcvd{$platform,$container}",
+              "type": "line"
+            },
+            {
+              "q": "0 - sum:docker.net.bytes_sent{$platform,$container}",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[CONTAINERS] Sum of docker.net.bytes (sent, rcvd)"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "per_second(sum:couchdb.httpd_request_methods.GET{$platform} by {name}), per_second(sum:couchdb.httpd_request_methods.HEAD{$platform} by {name}), per_second(sum:couchdb.httpd_request_methods.POST{$platform} by {name}), per_second(sum:couchdb.httpd_request_methods.PUT{$platform} by {name})",
+              "type": "bars"
+            },
+            {
+              "q": "per_second(sum:couchdb.httpd_request_methods.GET{$platform}) + per_second(sum:couchdb.httpd_request_methods.HEAD{$platform}) + per_second(sum:couchdb.httpd_request_methods.POST{$platform}) + per_second(sum:couchdb.httpd_request_methods.PUT{$platform})",
+              "type": "line"
+            },
+            {
+              "q": "per_second(sum:couchdb.httpd_request_methods.GET{$platform} by {name}), per_second(sum:couchdb.httpd_request_methods.HEAD{$platform} by {name}), per_second(sum:couchdb.httpd_request_methods.POST{$platform} by {name}), per_second(sum:couchdb.httpd_request_methods.PUT{$platform} by {name})",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[COUCHDB] Sum of couchdb.httpd_request_methods"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "per_second(sum:couchdb.httpd_status_codes.200{$platform} by {name}), per_second(sum:couchdb.httpd_status_codes.201{$platform} by {name}), per_second(sum:couchdb.httpd_status_codes.202{$platform} by {name}), per_second(sum:couchdb.httpd_status_codes.304{$platform} by {name}), per_second(sum:couchdb.httpd_status_codes.400{$platform} by {name}), per_second(sum:couchdb.httpd_status_codes.404{$platform} by {name}), per_second(sum:couchdb.httpd_status_codes.409{$platform} by {name}), per_second(sum:couchdb.httpd_status_codes.500{$platform} by {name})",
+              "type": "bars"
+            },
+            {
+              "q": "per_second(sum:couchdb.httpd.requests{$platform})",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[COUCHDB] Sum of couchdb.httpd_status_codes"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "per_second(avg:couchdb.couchdb.request_time{$platform} by {name})",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "[COUCHDB] Avg of couchdb.requested_time (ms)"
+      },
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "sum:docker.containers.running{$platform} by {name}, sum:docker.containers.stopped{$platform} by {name}",
+              "type": "bars"
+            }
+          ]
+        },
+        "title": "[PLATFORM] Sum of docker.container (running, stopped)"
+      }
+    ],
+    "description": "created by boris.rousseau@technicolor.com",
+    "template_variables": [
+      {
+        "default": "*",
+        "prefix": null,
+        "name": "platform"
+      },
+      {
+        "default": "*",
+        "prefix": "container_name",
+        "name": "container"
+      }
+    ],
+    "id": 82032,
+    "title": "Platform / Container(s) TimeBoard"
+  },
+  "url": "/dash/82032/platform--containers-timeboard",
+  "resource": "/api/v1/dash/82032"
+}

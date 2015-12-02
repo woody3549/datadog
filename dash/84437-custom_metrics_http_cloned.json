@@ -1,0 +1,30 @@
+{
+  "dash": {
+    "graphs": [
+      {
+        "definition": {
+          "viz": "timeseries",
+          "requests": [
+            {
+              "q": "avg:http.reponse_time{$scope}",
+              "type": "line"
+            }
+          ]
+        },
+        "title": "http.reponse_time"
+      }
+    ],
+    "description": "Custom metrics for http (cloned)",
+    "template_variables": [
+      {
+        "default": "*",
+        "prefix": null,
+        "name": "scope"
+      }
+    ],
+    "id": 84437,
+    "title": "Custom Metrics - http (cloned)"
+  },
+  "url": "/dash/84437/custom-metrics---http-cloned",
+  "resource": "/api/v1/dash/84437"
+}
